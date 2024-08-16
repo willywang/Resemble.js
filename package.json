@@ -1,6 +1,6 @@
 {
     "name": "resemblejs",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "description": "Image analysis and comparison with HTML5",
     "main": "resemble.js",
     "repository": {
@@ -29,6 +29,8 @@
         "lint": "eslint **/*.js --fix",
         "lint-ci": "eslint -c ./.eslintrc --ignore-path ./.eslintignore **/*.js"
     },
+    
+    "types": "types/index.d.ts",
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
