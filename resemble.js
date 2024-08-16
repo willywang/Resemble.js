@@ -63,14 +63,6 @@ var isNode = function () {
     var Canvas;
     var loadNodeCanvasImage;
 
-    if (isNode()) {
-        Canvas = require("canvas"); // eslint-disable-line global-require
-        Img = Canvas.Image;
-        loadNodeCanvasImage = Canvas.loadImage;
-    } else {
-        Img = Image;
-    }
-
     function createCanvas(width, height) {
         if (isNode()) {
             return Canvas.createCanvas(width, height);
@@ -792,6 +784,15 @@ var isNode = function () {
         }
 
         function compare(one, two) {
+
+            if (isNode()) {
+                Canvas = require("canvas"); // eslint-disable-line global-require
+                Img = Canvas.Image;
+                loadNodeCanvasImage = Canvas.loadImage;
+            } else {
+                Img = Image;
+            }
+
             if (globalOutputSettings !== oldGlobalSettings) {
                 outputSettings(globalOutputSettings);
             }
